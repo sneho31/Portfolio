@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNEHO // Cybernetic Portfolio & Systems Dashboard</title>
+  <meta name="description" content="Interactive Retro-Tech / Cyberpunk Bento Portfolio template for developers, engineers, and interactive artists.">
+  <!-- Noto Serif JP for the retro Japanese text markings -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/index-DotsPLDU.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Cu1Pg5_f.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- --- HERO VIEWPORT SCREEN --- -->
+    <div class="hero-screen">
+      <!-- --- HEADER --- -->
+      <header>
+      <div class="brand-section">
+        <h1 class="brand-title">Sneho<span>.</span>OS</h1>
+        <div class="brand-subtitle">Interactive Cybernetic Interface // Build v1.0.4</div>
+      </div>
+      <div class="system-status">
+        <div style="display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-bottom: 4px;">
+          SYSTEM STABILITY: ONLINE <span class="status-indicator"></span>
+          <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+            <span class="toggle-label">LIGHT_MODE</span>
+          </button>
+        </div>
+        <div id="utc-clock" style="font-size: 0.75rem;">UTC: 00:00:00</div>
+      </div>
+    </header>
+
+    <!-- --- BENTO GRID --- -->
+    <main class="bento-grid hero-grid">
+      
+      <!-- CARD 1: HERO / INTRO (Rust Red, Tall) -->
+      <section class="bento-card col-span-1 row-span-2 theme-red hero-card">
+        <div class="card-header-meta">
+          <span class="card-number">01</span>
+          <div class="mini-pulse-wave">
+            <span class="pulse-label">SYS_LINK</span>
+            <svg viewBox="0 0 50 12" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M0,6 L10,6 L14,1 L18,11 L22,6 L35,6 L38,3 L41,9 L44,6 L50,6" class="pulse-line"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="hero-visual-wrapper">
+          <img src="/assets/cat_profile-DDwGCRkj.png" alt="Cybernetic Unit Sneho" class="hero-image">
+        </div>
+
+        <div class="hero-content">
+          <h2 class="hero-title">Hey there, I'm Sneho</h2>
+          <p class="hero-desc">An aspiring CS undergrad exploring the world of computing, software development, and interactive design.</p>
+        </div>
+
+        <div class="card-footer-meta">
+          <div class="barcode">
+            <span class="w-2"></span>
+            <span class="w-1"></span>
+            <span class="w-3"></span>
+            <span class="w-1"></span>
+            <span class="w-4"></span>
+            <span class="w-2"></span>
+            <span class="w-1"></span>
+          </div>
+          <span>MODEL // SN-2026</span>
+        </div>
+      </section>
+
+      <!-- CARD 2: ABOUT & STATS (Mustard Yellow, Wide) -->
+      <section class="bento-card col-span-2 row-span-1 theme-yellow about-card">
+        <div class="calibration-scale"></div>
+        <div class="about-card-arrow-bg">
+          <svg viewBox="0 0 100 100" fill="currentColor">
+            <polygon points="30,10 80,10 90,20 90,70 75,70 75,36 31,80 10,80 65,25 30,25" />
+          </svg>
+        </div>
+        <div class="card-header-meta">
+          <span class="card-number">02</span>
+          <span class="card-label">Core Specifications</span>
+        </div>
+
+        <div class="about-card-body">
+          <div class="about-left">
+            <h2 class="about-main-title">About Me</h2>
+            <p class="about-text">
+              A 2nd-year CS undergrad passionately exploring the tech landscape. Right now, I'm focusing on mobile app development using Flutter while continuously learning new technologies to find my ultimate niche in software development.
+            </p>
+          </div>
+
+          <!-- Redesigned Contact Portal Button on the Right -->
+          <a href="#comms" class="about-right-portal-btn">
+            <div class="portal-btn-header">
+              <span class="portal-btn-status">SYS_LINK_07</span>
+              <span class="portal-btn-pulse"></span>
+            </div>
+            
+            <div class="portal-btn-main">
+              <div class="portal-btn-title">CONTACT ME</div>
+              <div class="portal-btn-subtitle">Transmit Signal Stream</div>
+            </div>
+
+            <div class="portal-btn-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+
+            <div class="portal-btn-footer">
+              <span class="portal-btn-decal">SIGNAL BEAM // READY</span>
+              <div class="barcode">
+                <span class="w-1"></span>
+                <span class="w-2"></span>
+                <span class="w-1"></span>
+                <span class="w-3"></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="card-footer-meta">
+          <span>#EOA15E // CORP.UNIT</span>
+          <div class="tech-dots">
+            <span class="h-fill"></span>
+            <span class="h-fill"></span>
+            <span class="h-half"></span>
+            <span class="h-empty"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 3: TECH STACK (Sage Green, Square) -->
+      <section class="bento-card col-span-1 row-span-1 theme-green skills-card">
+        <div class="scope-crosshair"></div>
+        <div class="radar-decal"></div>
+        <div class="card-header-meta">
+          <span class="card-number">03</span>
+          <span class="card-label">System Modules</span>
+        </div>
+
+        <div class="skills-card-body">
+          <div class="skills-title-group">
+            <h3 class="skills-title">SKILL SYSTM</h3>
+            <span class="skills-version">TS26 // VER 2.0</span>
+          </div>
+
+          <ul class="skills-list">
+            <li><span>JAVASCRIPT</span> <span>90%</span></li>
+            <li><span>HTML5 / CSS3</span> <span>95%</span></li>
+            <li><span>REACT & VUE</span> <span>85%</span></li>
+            <li><span>NODEJS & GRAPHQL</span> <span>75%</span></li>
+            <li><span>GLSL / WEBGPU</span> <span>60%</span></li>
+          </ul>
+
+
+        </div>
+
+        <div class="card-footer-meta">
+          <span>SORT BEFORE SENDING</span>
+          <span class="card-label">CE @2026</span>
+        </div>
+      </section>
+
+      <!-- CARD 4: SELECTED PROJECTS (Retro Gray, Square) -->
+      <section class="bento-card col-span-1 row-span-1 theme-gray deployments-card">
+        <div class="defrag-label">SECTOR ACTIVITY MAP</div>
+        <div class="defrag-grid">
+          <span class="df-block fill-90"></span>
+          <span class="df-block fill-50"></span>
+          <span class="df-block fill-0"></span>
+          <span class="df-block fill-90 animate-blink"></span>
+          <span class="df-block fill-90"></span>
+          <span class="df-block fill-0"></span>
+          <span class="df-block fill-50"></span>
+          <span class="df-block fill-90"></span>
+          <span class="df-block fill-50"></span>
+          <span class="df-block fill-0"></span>
+          <span class="df-block fill-90"></span>
+          <span class="df-block fill-50"></span>
+        </div>
+        <div class="card-header-meta">
+          <span class="card-number">04</span>
+          <span class="card-label">Deployments</span>
+        </div>
+
+        <div class="proj-card-body">
+          <div class="proj-title-group">
+            <h3 class="proj-title">RETRO AI TECHNOLOGY</h3>
+            <span class="skills-version">INDEX_VER_99</span>
+          </div>
+
+          <div class="proj-number-big" id="proj-counter">25</div>
+
+          <button class="proj-details-btn" onclick="openProjectModal('main')">
+            <span>PROJECT DATA LOGS</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="card-footer-meta">
+          <div class="barcode">
+            <span class="w-1"></span>
+            <span class="w-3"></span>
+            <span class="w-2"></span>
+            <span class="w-4"></span>
+          </div>
+          <span>SPEC: CL-40</span>
+        </div>
+      </section>
+
+    </main>
+    </div> <!-- END HERO VIEWPORT SCREEN -->
+
+    <!-- --- FUNKY PROJECTS SECTION DIVIDER --- -->
+    <div style="margin: 64px 0 32px;">
+      <div class="caution-stripes red-stripes" style="margin-bottom: 16px;"></div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1.5px dashed var(--card-dark-border); padding-bottom: 16px;">
+        <h2 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; letter-spacing: -0.5px; text-transform: uppercase; text-shadow: 0 0 10px rgba(201, 78, 62, 0.25);">ACTIVE MISSIONS // PROJECT DIRECTORY</h2>
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">REGISTERED DEPLOYMENTS: 03 // SECURED</span>
+      </div>
+    </div>
+
+    <!-- --- PROJECTS GRID (FUNKY THEMED CARDS) --- -->
+    <section class="bento-grid" style="margin-bottom: 64px;">
+      
+      <!-- Project 1: Hyperion (Teal, Funky) -->
+      <article class="bento-card col-span-1 row-span-1 theme-teal">
+        <div class="project-blueprint-overlay"></div>
+        <div class="crosshair-decal"></div>
+        <div class="card-header-meta" style="z-index: 5;">
+          <span class="card-number">01</span>
+          <span class="card-label">MISSION DEPLOYMENT</span>
+        </div>
+        <div style="z-index: 5;">
+          <h3 class="project-title-sub">PROJECT HYPERION</h3>
+          <div class="project-type-label">GLSL GENERATIVE SHADER CLIENT</div>
+          <p class="project-desc">
+            An experimental GPU rendering system that executes high-complexity GLSL fragment shaders in real-time.
+          </p>
+          <div class="project-tech-badges">
+            <span class="project-badge">WebGL</span>
+            <span class="project-badge">GLSL</span>
+            <span class="project-badge">WebGPU</span>
+          </div>
+        </div>
+        <div class="project-action-links">
+          <a href="#" class="project-btn primary" onclick="openProjectModal('hyperion'); return false;">LOG DETAILS</a>
+          <a href="https://github.com" target="_blank" class="project-btn secondary">SOURCE CODE</a>
+        </div>
+      </article>
+
+      <!-- Project 2: Chrono-Grid (Indigo, Funky) -->
+      <article class="bento-card col-span-1 row-span-1 theme-indigo">
+        <div class="project-blueprint-overlay"></div>
+        <div class="crosshair-decal"></div>
+        <div class="card-header-meta" style="z-index: 5;">
+          <span class="card-number">02</span>
+          <span class="card-label">MISSION DEPLOYMENT</span>
+        </div>
+        <div style="z-index: 5;">
+          <h3 class="project-title-sub">CHRONO-GRID</h3>
+          <div class="project-type-label">BENTO GRID ARCHITECT</div>
+          <p class="project-desc">
+            A brutalist GUI layout configurator designed to arrange CSS Bento grid structures and export clean code.
+          </p>
+          <div class="project-tech-badges">
+            <span class="project-badge">CSS Grid</span>
+            <span class="project-badge">Vanilla JS</span>
+            <span class="project-badge">DOM API</span>
+          </div>
+        </div>
+        <div class="project-action-links">
+          <a href="#" class="project-btn primary" onclick="openProjectModal('chronogrid'); return false;">LOG DETAILS</a>
+          <a href="https://github.com" target="_blank" class="project-btn secondary">SOURCE CODE</a>
+        </div>
+      </article>
+
+      <!-- Project 3: DPM Core (Cream, Funky) -->
+      <article class="bento-card col-span-1 row-span-1 theme-cream">
+        <div class="project-blueprint-overlay"></div>
+        <div class="crosshair-decal"></div>
+        <div class="card-header-meta" style="z-index: 5;">
+          <span class="card-number">03</span>
+          <span class="card-label">MISSION DEPLOYMENT</span>
+        </div>
+        <div style="z-index: 5;">
+          <h3 class="project-title-sub">DPM CORE</h3>
+          <div class="project-type-label">ASYNCHRONOUS STATE LOOP</div>
+          <p class="project-desc">
+            A dependency-free modular state machine engine that handles complex reactive event loops.
+          </p>
+          <div class="project-tech-badges">
+            <span class="project-badge">ES6 JS</span>
+            <span class="project-badge">State Charts</span>
+            <span class="project-badge">Node.js</span>
+          </div>
+        </div>
+        <div class="project-action-links">
+          <a href="#" class="project-btn primary" onclick="openProjectModal('dpmcore'); return false;">LOG DETAILS</a>
+          <a href="https://github.com" target="_blank" class="project-btn secondary">SOURCE CODE</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- --- OS DASHBOARD BOTTOM GRID --- -->
+    <main class="bento-grid" style="margin-bottom: 64px;">
+
+      <!-- CARD 5: INTERACTIVE RETRO TERMINAL (Dark, Wide) -->
+      <section class="bento-card col-span-2 row-span-1 terminal-card">
+        <div class="terminal-header">
+          <div class="terminal-actions">
+            <span class="terminal-action-dot"></span>
+            <span class="terminal-action-dot"></span>
+            <span class="terminal-action-dot"></span>
+          </div>
+          <span class="terminal-title">sneho-os-terminal v1.0.4</span>
+          <span style="font-size: 0.65rem; color: var(--text-muted);">TTY // PORT_80</span>
+        </div>
+
+        <div class="terminal-output" id="terminal-display">
+          <div class="terminal-line system">SNEHO-OS [Version 1.0.4]</div>
+          <div class="terminal-line system">Initializing neural core link... OK</div>
+          <div class="terminal-line response">Welcome to Sneho's interactive shell. Type "help" to see available terminal logs.</div>
+        </div>
+
+        <div class="terminal-input-row">
+          <span class="terminal-prompt">guest@sneho-os:~$</span>
+          <input type="text" class="terminal-input" id="terminal-textbox" autofocus autocomplete="off" spellcheck="false">
+        </div>
+      </section>
+
+      <!-- CARD 8: SIGNAL COORDINATES (Dark, Square) -->
+      <section class="bento-card col-span-1 row-span-1 coordinates-card">
+        <div class="card-header-meta">
+          <span class="card-number">06</span>
+          <span class="card-label">Coordinates</span>
+        </div>
+        
+        <div class="coordinates-vertical-stack">
+          <a href="https://github.com" target="_blank" class="coordinate-link">
+            <span class="coord-label">GITHUB CHANNEL</span>
+            <span class="coord-val">[LINK-01]</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="coordinate-link">
+            <span class="coord-label">LINKEDIN CORE</span>
+            <span class="coord-val">[LINK-02]</span>
+          </a>
+          <a href="https://x.com" target="_blank" class="coordinate-link">
+            <span class="coord-label">TWITTER SYSTEM</span>
+            <span class="coord-val">[LINK-03]</span>
+          </a>
+          <a href="mailto:sneho.dev@gmail.com" class="coordinate-link">
+            <span class="coord-label">EMAIL RESONATOR</span>
+            <span class="coord-val">[SIGNAL]</span>
+          </a>
+        </div>
+
+        <div class="card-footer-meta">
+          <span>PORT // SECURE</span>
+          <div class="barcode">
+            <span class="w-1"></span>
+            <span class="w-2"></span>
+            <span class="w-1"></span>
+            <span class="w-3"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 7: COMMS TRANSMISSOR / CONTACT (Dark, Wide) -->
+      <section id="comms" class="bento-card col-span-2 row-span-1 comms-card">
+        <div class="card-header-meta">
+          <span class="card-number">07</span>
+          <span class="card-label">Communications Node</span>
+        </div>
+
+        <div class="comms-card-body">
+          <form id="transmitter-form" onsubmit="transmitSignal(event)">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px;">
+              <div class="comms-field">
+                <label for="comms-name" class="comms-label">SIGNAL IDENTIFIER (NAME)</label>
+                <input type="text" id="comms-name" class="comms-input" placeholder="e.g. USER-909" required>
+              </div>
+              <div class="comms-field">
+                <label for="comms-email" class="comms-label">RETURN PATH (EMAIL)</label>
+                <input type="email" id="comms-email" class="comms-input" placeholder="e.g. user@domain.com" required>
+              </div>
+            </div>
+
+            <div class="comms-field" style="margin-bottom: 16px;">
+              <label for="comms-msg" class="comms-label">TRANSMISSION ENVELOPE (MESSAGE)</label>
+              <textarea id="comms-msg" class="comms-input" placeholder="Enter message text stream..." required></textarea>
+            </div>
+
+            <button type="submit" class="comms-submit-btn">
+              <span>TRANSMIT SIGNAL</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="card-footer-meta">
+          <span>ENCRYPTION: AES-256</span>
+          <span id="transmit-status" style="font-family: var(--font-mono); color: var(--color-yellow);">READY TO BEAM</span>
+        </div>
+      </section>
+
+      <!-- CARD 6: MISSION LOGS / EXPERIENCE (Dark, Square) -->
+      <section class="bento-card col-span-1 row-span-1 timeline-card">
+        <div class="card-header-meta">
+          <span class="card-number">08</span>
+          <span class="card-label">Service Log</span>
+        </div>
+
+        <div class="timeline-flow">
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-date">2024 - PRESENT</div>
+            <div class="timeline-title-sub">Interface Lead</div>
+            <div class="timeline-corp">NEO-TOKYO LABS</div>
+            <p class="timeline-desc">Architected high-speed UI systems and cybernetic visualizations.</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-date">2022 - 2024</div>
+            <div class="timeline-title-sub">Frontend Engineer</div>
+            <div class="timeline-corp">DPM SYSTEMS CORP</div>
+            <p class="timeline-desc">Built modular spec dashboards and custom layout systems.</p>
+          </div>
+        </div>
+
+        <div class="card-footer-meta">
+          <span>MISSION_LOG // ACTIVE</span>
+          <div class="tech-dots">
+            <span class="h-fill"></span>
+            <span class="h-fill"></span>
+            <span class="h-fill"></span>
+            <span class="h-half"></span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- --- RETRO MODAL --- -->
+    <div id="project-modal" class="retro-modal" onclick="closeProjectModal()">
+      <div class="retro-modal-content" onclick="event.stopPropagation()">
+        <button class="retro-modal-close" onclick="closeProjectModal()">×</button>
+        <h3 class="modal-project-title" id="modal-title">PROJECT LOGGER</h3>
+        <div class="modal-project-tag" id="modal-tag">VERSION CONTROL 1.0</div>
+        
+        <div class="modal-body" id="modal-body">
+          <!-- Dynamically populated -->
+        </div>
+
+        <div class="modal-tech-badges" id="modal-tech">
+          <!-- Dynamically populated -->
+        </div>
+
+        <div class="modal-footer">
+          <a href="#" target="_blank" class="btn-primary" id="modal-link-live">LAUNCH MISSION</a>
+          <a href="#" target="_blank" class="btn-secondary" id="modal-link-repo">SOURCE CODE</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- --- FOOTER --- -->
+    <footer class="retro-footer">
+      <div>
+        <span>DESIGNED FOR ORIGINALITY // ©2026 SNEHO</span>
+      </div>
+      <div class="social-links">
+        <a href="#" target="_blank">GITHUB</a>
+        <a href="#" target="_blank">LINKEDIN</a>
+        <a href="#" target="_blank">X-CHANNEL</a>
+        <a href="#" target="_blank">TERMINAL</a>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

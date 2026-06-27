@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNEHO // Project Dossier: DisciPlan</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
+  <style>
+    /* Specific overrides for project dossier page */
+    .dossier-container {
+      margin-top: 32px;
+      margin-bottom: 64px;
+    }
+
+    .dossier-header-card {
+      background-color: var(--card-dark);
+      border: 1px solid var(--card-dark-border);
+      padding: 32px;
+      position: relative;
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .back-btn {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-yellow);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      font-weight: 700;
+      width: fit-content;
+      transition: var(--transition-fast);
+      border: 1px solid var(--color-yellow);
+      padding: 8px 16px;
+      background-color: rgba(224, 161, 94, 0.05);
+    }
+    
+    .back-btn:hover {
+      background-color: var(--color-yellow);
+      color: #0f1011;
+      box-shadow: 0 0 10px rgba(224, 161, 94, 0.25);
+    }
+
+    .dossier-title-group {
+      border-bottom: 1.5px dashed var(--card-dark-border);
+      padding-bottom: 20px;
+    }
+
+    .dossier-title {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      line-height: 1;
+      margin: 8px 0;
+      color: var(--text-light);
+    }
+
+    .live-site-link {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--color-red);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      transition: var(--transition-fast);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .live-site-link:hover {
+      text-shadow: 0 0 8px rgba(201, 78, 62, 0.4);
+      color: var(--text-light);
+    }
+
+    /* Tech Stack Table Styles */
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .tech-table th {
+      text-align: left;
+      background-color: rgba(15, 16, 17, 0.6);
+      color: var(--color-yellow);
+      padding: 10px 12px;
+      border-bottom: 1.5px solid var(--card-dark-border);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .tech-table td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-light);
+    }
+
+    .tech-table tr:hover td {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Spec sheet values */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      height: 100%;
+    }
+
+    .spec-item {
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background-color: rgba(15, 16, 17, 0.3);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .spec-value {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--color-green);
+      text-transform: uppercase;
+    }
+
+    /* ASCII block styles */
+    .ascii-terminal {
+      background-color: #0c0d0e;
+      border: 1px solid var(--card-dark-border);
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      overflow-x: auto;
+      margin: 16px 0;
+      color: #39ff14; /* Matrix Green */
+      border-radius: 0px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    }
+
+    .ascii-terminal pre {
+      margin: 0;
+    }
+
+    /* Formula Box */
+    .formula-box {
+      border-left: 3px solid var(--color-yellow);
+      background-color: rgba(224, 161, 94, 0.03);
+      padding: 16px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+
+    .formula-title {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .formula-math {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Custom dossier layouts */
+    .dossier-sub-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      border-bottom: 1.5px solid var(--card-dark-border);
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dossier-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .dossier-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .dossier-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: var(--color-yellow);
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .checklist-box {
+      width: 16px;
+      height: 16px;
+      border: 1px solid var(--color-yellow);
+      background-color: rgba(224, 161, 94, 0.05);
+      flex-shrink: 0;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--color-yellow);
+      font-weight: 900;
+      font-family: var(--font-mono);
+    }
+
+    .checklist-box.checked {
+      background-color: var(--color-yellow);
+      color: #0f1011;
+    }
+
+    /* Light Theme Adjustments for specific elements */
+    body.light-theme .ascii-terminal {
+      background-color: #f4f5f6;
+      border-color: #d1d5db;
+      color: #1b5e20; /* Darker green */
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    }
+    body.light-theme .spec-item {
+      background-color: #ffffff;
+      border-color: #e5e7eb;
+    }
+    body.light-theme .back-btn {
+      background-color: rgba(201, 78, 62, 0.05);
+      border-color: var(--color-red);
+      color: var(--color-red);
+    }
+    body.light-theme .back-btn:hover {
+      background-color: var(--color-red);
+      color: #ffffff;
+    }
+    body.light-theme .formula-box {
+      border-left-color: var(--color-red);
+      background-color: rgba(201, 78, 62, 0.02);
+    }
+    
+    /* Responsive grid columns */
+    @media (max-width: 1024px) {
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .col-span-3 { grid-column: span 2; }
+      .col-span-2 { grid-column: span 2; }
+    }
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+      }
+      .col-span-3, .col-span-2, .col-span-1 {
+        grid-column: span 1;
+      }
+      .dossier-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    .bento-card {
+      justify-content: flex-start !important;
+    }
+
+    /* Screenshot Styling */
+    .dossier-img {
+      width: 100%;
+      border: 1px solid var(--card-dark-border);
+      margin: 16px 0;
+      transition: var(--transition-smooth);
+      background-color: rgba(15, 16, 17, 0.5);
+      border-radius: 0px;
+      display: block;
+    }
+    
+    .dossier-img:hover {
+      border-color: var(--color-yellow);
+      box-shadow: 0 0 15px rgba(224, 161, 94, 0.15);
+      transform: scale(1.01);
+    }
+    
+    .img-caption {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: -8px;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body class="light-theme">
+
+  <div class="container">
+    <!-- --- HEADER --- -->
+    <header>
+      <div class="brand-section">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+          <h1 class="brand-title">Sneho<span>.</span>OS</h1>
+        </a>
+        <div class="brand-subtitle">Interactive Cybernetic Interface // Project Dossier</div>
+      </div>
+      <div class="system-status">
+        <div style="display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-bottom: 4px;">
+          SYSTEM STABILITY: ONLINE <span class="status-indicator"></span>
+          <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+            <span class="toggle-label">LIGHT_MODE</span>
+          </button>
+        </div>
+        <div id="utc-clock" style="font-size: 0.75rem;">UTC: 00:00:00</div>
+      </div>
+    </header>
+
+    <div class="dossier-container">
+      
+      <!-- --- DOSSIER TITLE CARD --- -->
+      <section class="dossier-header-card">
+        <div>
+          <a href="index.html" class="back-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; display: inline-block; vertical-align: middle;">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Dashboard
+          </a>
+        </div>
+        <div class="dossier-title-group">
+          <div class="card-number" style="color: var(--color-yellow); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 1px;">DEPLOYMENT LOG // 01</div>
+          <h2 class="dossier-title">DisciPlan — The Gamified Academic OS</h2>
+        </div>
+        <div>
+          <a href="https://www.disciplan.xyz/" target="_blank" class="live-site-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            Connect to Live Node: www.disciplan.xyz
+          </a>
+        </div>
+      </section>
+
+      <!-- --- DETAILED BENTO GRID --- -->
+      <div class="bento-grid">
+        
+        <!-- CARD 1: OVERVIEW & STACK (Col-span 2) -->
+        <section class="bento-card col-span-2 row-span-1 theme-teal" style="overflow: visible;">
+          <div class="card-header-meta">
+            <span class="card-number">01</span>
+            <span class="card-label">Core Mission Spec</span>
+          </div>
+          <div>
+            <h3 class="dossier-sub-title">Project Overview</h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+              <strong>DisciPlan</strong> is a centralized academic operating system and gamified task-management engine designed to unite students and faculty in a single, frictionless ecosystem. Built as a unified productivity "second brain," DisciPlan replaces stressful deadline panic with structured, mindful execution. By housing daily task planning, collaborative workspaces, section repositories, and community discussions under one roof, it eliminates the heavy administrative cognitive overhead and decision fatigue traditionally caused by switching between fragmented learning applications.
+            </p>
+
+            <h3 class="dossier-sub-title">Technology Stack Modules</h3>
+            <table class="tech-table">
+              <thead>
+                <tr>
+                  <th>Architecture Layer</th>
+                  <th>Technologies Utilized</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Frontend Architecture</td>
+                  <td>React 19, TypeScript, TanStack Router / TanStack Start, TanStack Query, Tailwind CSS, Radix UI, shadcn/ui</td>
+                </tr>
+                <tr>
+                  <td>Build & Runtime</td>
+                  <td>Vite, Bun (with Node/NPM fallback support)</td>
+                </tr>
+                <tr>
+                  <td>Backend Engineering</td>
+                  <td>FastAPI, Uvicorn (Asynchronous ASGI Server)</td>
+                </tr>
+                <tr>
+                  <td>Security & Auth</td>
+                  <td>JSON Web Tokens (JWT) via python-jose, bcrypt hashing</td>
+                </tr>
+                <tr>
+                  <td>Database & Storage</td>
+                  <td>Aiven for MySQL (Cloud Relational), Cloudinary (Binary Assets)</td>
+                </tr>
+                <tr>
+                  <td>Infrastructure</td>
+                  <td>Render Infrastructure-as-Code (render.yaml orchestration)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- CARD 2: SPECS DOSSIER (Col-span 1) -->
+        <section class="bento-card col-span-1 row-span-1 theme-yellow">
+          <div class="card-header-meta">
+            <span class="card-number">02</span>
+            <span class="card-label">System Metadata</span>
+          </div>
+          <div class="spec-grid">
+            <h3 class="dossier-sub-title">System Specs</h3>
+            
+            <div class="spec-item">
+              <span class="spec-label">DEPLOYMENT STATUS</span>
+              <span class="spec-value" style="color: var(--color-green);">ACTIVE // LIVE</span>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">DATABASE SIZE</span>
+              <span class="spec-value">80+ TABLES</span>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">DB ACCESS TYPE</span>
+              <span class="spec-value" style="color: var(--color-red);">ZERO-ORM RAW SQL</span>
+            </div>
+
+            <div class="spec-item">
+              <span class="spec-label">CORE SECURITY LAYER</span>
+              <span class="spec-value">JWT + AES-256</span>
+            </div>
+            
+            <div class="spec-item">
+              <span class="spec-label">CLIENT RUNTIME</span>
+              <span class="spec-value">REACT 19 + TANSTACK</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- CARD 3: ARCHITECTURE FLOW (Col-span 3) -->
+        <section class="bento-card col-span-3 row-span-1 theme-gray">
+          <div class="card-header-meta">
+            <span class="card-number">03</span>
+            <span class="card-label">Backend Architecture Flow</span>
+          </div>
+          <div>
+            <h3 class="dossier-sub-title">Zero-ORM Asynchronous Data Flow Pipeline</h3>
+            <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px;">
+              Unlike traditional applications built on top of high-overhead Object-Relational Mappers (ORMs), DisciPlan's backend architecture executes <strong>raw, parameterized SQL queries</strong> directly through an asynchronous repository layer. This intentional design choice eliminates serialization bottlenecks, simplifies complicated data mutations, and grants complete optimization authority over database execution paths.
+            </p>
+
+            <div class="ascii-terminal">
+              <pre>
+[ CLIENT SIDE // React 19 + TanStack Start ]
+                     │ 
+                     │ (Asynchronous REST API Calls via fetch / TanStack Query)
+                     ▼
+[ MIDDLEWARE LAYER // FastAPI Backend + Uvicorn ASGI Server ]
+                     │ 
+                     │ (Executes raw, parameterized MySQL queries compiled natively)
+                     ▼
+[ DRIVER PROTOCOL // Asynchronous Driver: asyncmy (SSL-secured connection pooling) ]
+                     │ 
+                     │ (High-Performance Async Pooling Stream)
+                     ▼
+[ PERSISTENCE NODE // Database: Aiven for MySQL (Cloud Relational Cluster) ]</pre>
+            </div>
+
+            <ul class="dossier-list" style="margin-top: 16px;">
+              <li><strong>80+ Table Core Database:</strong> Highly normalized schema incorporating structural integrity through rigid foreign key constraints, lookup definitions for system-level enums, and explicit junction tables managing many-to-many allocations.</li>
+              <li><strong>Custom Database-Side Materialization & Views:</strong> Computes heavy aggregations—such as global leaderboard ranking computations and active unread message counts—via highly optimized MySQL views rather than exhausting server-side runtime memory.</li>
+              <li><strong>Binary Object Storage Separation:</strong> Heavy binaries (lecture PDFs, slide presentations, media assets) are stored off the database on Cloudinary, while secure URL strings and asset metadata are indexed natively in MySQL table columns.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CARD 4: SCHEDULER ENGINE (Col-span 2) -->
+        <section class="bento-card col-span-2 row-span-1 theme-green">
+          <div class="card-header-meta">
+            <span class="card-number">04</span>
+            <span class="card-label">Core Scheduler Algorithms</span>
+          </div>
+          <div>
+            <h3 class="dossier-sub-title">Intelligent Daily Planner & Predictive Scheduler</h3>
+            
+            <ul class="dossier-list" style="margin-bottom: 20px;">
+              <li>
+                <strong>Algorithmic Task Slicing (The 5-Part Guardrail):</strong> To prevent cognitive over-saturation and task paralysis, long-term major deadlines are automatically split into micro-tasks by a custom workload-balancing engine.
+                <div style="font-size: 0.85rem; opacity: 0.9; margin-top: 6px; padding-left: 12px; border-left: 2px solid var(--color-green);">
+                  • <em>Deadlines ≤ 5 days away:</em> Spreads the work uniformly by creating exactly one subtask block per day.<br>
+                  • <em>Deadlines > 5 days away:</em> Rigidly caps the breakdown to a maximum of 5 chunks spaced out intelligently across the timeframe.
+                </div>
+              </li>
+              <li><strong>Smart Load-Balancing Optimization:</strong> The scheduler maps subtasks to upcoming calendar days by evaluating the baseline total task count for each day, routing subtasks to days with the lightest weight. Ties are resolved by defaulting to the earliest available date.</li>
+              <li><strong>Intelligent Overdue Carry-Over:</strong> Missed or incomplete tasks are never blindly piled onto the next morning's stack. The backend automatically executes the load-balancing logic to scatter outstanding items across future low-density windows.</li>
+              <li>
+                <strong>Live Task Weighting Engine:</strong> A continuous background sorting algorithm that ranks items by a calculated <em>Total Priority Weight</em> to eliminate decision fatigue.
+                <div class="formula-box">
+                  <div class="formula-title">Priority Calculation Matrix</div>
+                  <div class="formula-math">Total Priority Weight = f(Base Weight, Time-Urgency, Progress Volume)</div>
+                </div>
+                <div style="font-size: 0.85rem; opacity: 0.9; padding-left: 12px;">
+                  • <em>Base Weight:</em> Initial importance tier defined by the user (High, Medium, Low).<br>
+                  • <em>Time-Urgency:</em> Multiplies exponentially as the absolute deadline clock ticks closer.<br>
+                  • <em>Progress Volume:</em> Automatically scales upward if a high ratio of subtasks remains uncompleted, forcing lagging milestones to aggressively climb to the top of the user's daily view.
+                </div>
+              </li>
+              <li><strong>Energy-Aware Prioritization:</strong> Features an interactive <strong>Daily Energy Slider</strong> (ranging from <em>Low</em> to <em>Peak</em> energy states). When adjusted, the client reorders the daily task list to reflect the user's current cognitive state:
+                <div style="font-size: 0.85rem; opacity: 0.9; margin-top: 6px; padding-left: 12px; border-left: 2px solid var(--color-green);">
+                  • <em>Low Energy:</em> Surfaces quick, low-effort maintenance tasks to secure psychological easy wins.<br>
+                  • <em>Peak Energy:</em> Pulls heavy, high-effort, deeply complex assignments into view during windows of high productivity.
+                </div>
+              </li>
+            </ul>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+              <div>
+                <img src="assets/disciplan/page_3_img_1.jpeg" alt="10-Day Task Slicing Dashboard" class="dossier-img">
+                <div class="img-caption">// FIG-01: Workload Task-Slicing Interface</div>
+              </div>
+              <div>
+                <img src="assets/disciplan/page_5_img_1.png" alt="Daily Task List & Energy Matcher" class="dossier-img">
+                <div class="img-caption">// FIG-02: Daily Task List & Energy Selector</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CARD 5: GAMIFICATION MECHANICS (Col-span 1) -->
+        <section class="bento-card col-span-1 row-span-1 theme-teal">
+          <div class="card-header-meta">
+            <span class="card-number">05</span>
+            <span class="card-label">Engagement Protocol</span>
+          </div>
+          <div>
+            <h3 class="dossier-sub-title">Engagement Mechanics</h3>
+            <ul class="dossier-list">
+              <li><strong>10-Tier Experience Ladder:</strong> A comprehensive progression index spanning from <em>Recruit</em> up to the ultimate <em>Titan</em> rank. Experience points (XP) are safely minted into the database upon 100% task completion and verified community feedback.</li>
+              <li><strong>Milestone Badges:</strong> Dynamic reward items unlocked by consistent productivity loops (e.g., the <em>Catalyst</em> badge suite earned for receiving high upvote thresholds on singular technical blog entries).</li>
+              <li><strong>GitHub-Style Activity Heatmaps:</strong> A visual matrix embedded inside user profile cards mapping aggregate productivity scores, platform interactions, and study behaviors continuously over a 365-day timeline.</li>
+            </ul>
+
+            <img src="assets/disciplan/page_7_img_1.jpeg" alt="Tier Progression Dashboard" class="dossier-img">
+            <div class="img-caption">// FIG-03: 10-Tier Experience Progression Panel</div>
+            
+            <img src="assets/disciplan/page_7_img_2.png" alt="Achievements & Badges" class="dossier-img">
+            <div class="img-caption">// FIG-04: Catalyst Series Digital Achievement Badges</div>
+          </div>
+        </section>
+
+        <!-- CARD 6: HUBS & COMMUNITIES (Col-span 1) -->
+        <section class="bento-card col-span-1 row-span-1 theme-indigo">
+          <div class="card-header-meta">
+            <span class="card-number">06</span>
+            <span class="card-label">Academic Workspaces</span>
+          </div>
+          <div>
+            <h3 class="dossier-sub-title">Workspaces & Comms</h3>
+            <ul class="dossier-list">
+              <li><strong>Interactive Student Dashboard:</strong> A centralized landing interface displaying real-time task queues, unified calendar layers, energy configurations, and active study streaks.</li>
+              <li><strong>Course Section Hubs:</strong> A distinct workspace assigned for every enrolled section, giving students instantaneous access to: Announcements, Resource Vaults, and Gradebooks with real-time feedback.</li>
+              <li><strong>Project Team Spaces:</strong> Isolated group environments featuring team boards, progress-tracking milestone checklists, and real-time project group chats.</li>
+              <li><strong>Doubt Resolution Forums:</strong> A structured Q&A forum supporting upvotes, content tagging, and a "Faculty-Verified" answer system.</li>
+              <li><strong>Academic Blogging Engine:</strong> Built-in platform allowing students to write study guides, expanding the institutional knowledge base.</li>
+            </ul>
+
+            <img src="assets/disciplan/page_6_img_2.png" alt="Practice Repositories Interface" class="dossier-img">
+            <div class="img-caption">// FIG-05: Course Section Hub & Practice Repositories</div>
+
+            <img src="assets/disciplan/page_9_img_2.png" alt="Gradebook Grid Interface" class="dossier-img">
+            <div class="img-caption">// FIG-06: Academic Gradebook & Evaluation Matrix</div>
+          </div>
+        </section>
+
+        <!-- CARD 7: IMPACT & ROADMAP (Col-span 2) -->
+        <section class="bento-card col-span-2 row-span-1 theme-cream">
+          <div class="card-header-meta">
+            <span class="card-number">07</span>
+            <span class="card-label">Mission Verification Logs</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div>
+              <h3 class="dossier-sub-title">Engineering Accomplishments</h3>
+              <ul class="checklist">
+                <li>
+                  <div class="checklist-box checked">✔</div>
+                  <div><strong>Eliminated App Friction:</strong> Integrated productivity workflows, course repositories, collaboration channels, and peer chats.</div>
+                </li>
+                <li>
+                  <div class="checklist-box checked">✔</div>
+                  <div><strong>Minimized Student Burnout:</strong> predictability planner systematically divides large milestones into micro-steps.</div>
+                </li>
+                <li>
+                  <div class="checklist-box checked">✔</div>
+                  <div><strong>Empowered Faculty Panels:</strong> Shifted manual team sorting, grading, and verification into automated panels.</div>
+                </li>
+                <li>
+                  <div class="checklist-box checked">✔</div>
+                  <div><strong>Guaranteed Data Scalability:</strong> Sub-millisecond query evaluation response times by avoiding ORM mapping abstractions.</div>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="dossier-sub-title">Future Roadmap Logs</h3>
+              <ul class="checklist">
+                <li>
+                  <div class="checklist-box"></div>
+                  <div><strong>Automated Course Enrollment:</strong> Integrating direct hooks into external university database schemas for user provisioning.</div>
+                </li>
+                <li>
+                  <div class="checklist-box"></div>
+                  <div><strong>Interactive Live Section Hubs:</strong> Incorporating WebSockets for live peer coding, screen-sharing, and collaborative spaces.</div>
+                </li>
+                <li>
+                  <div class="checklist-box"></div>
+                  <div><strong>Native Mobile Footprint:</strong> Transforming core scheduler engines and real-time alerts into a React Native implementation.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div style="grid-column: span 2; margin-top: 16px; border-top: 1px dashed var(--card-dark-border); padding-top: 16px;">
+            <img src="assets/disciplan/page_8_img_1.png" alt="GitHub-Style Activity Heatmap" class="dossier-img">
+            <div class="img-caption">// FIG-07: 365-Day Academic Productivity Heatmap Registry</div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- --- FOOTER --- -->
+    <footer class="retro-footer">
+      <div>
+        <span>DESIGNED FOR ORIGINALITY // ©2026 SNEHO</span>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com" target="_blank">GITHUB</a>
+        <a href="https://linkedin.com" target="_blank">LINKEDIN</a>
+        <a href="https://codeforces.com/profile/masudparvessneho" target="_blank">CODEFORCES</a>
+        <a href="index.html">TERMINAL</a>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
